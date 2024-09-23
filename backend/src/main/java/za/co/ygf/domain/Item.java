@@ -12,4 +12,14 @@ public class Item {
 
     private String price;
 
+    public Item() {
+    }
+
+    public Item(String itemNum, String itemName, String itemDesc, String img, String price) {
+        this.itemNum = itemNum;
+        this.itemName = itemName;
+        this.itemDesc = itemDesc;
+        this.img = img;
+        this.price = price;
+    }
 }

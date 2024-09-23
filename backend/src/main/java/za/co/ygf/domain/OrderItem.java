@@ -9,4 +9,9 @@ public class OrderItem {
     private Item item;
 
     private Integer quantity;
+
+    public OrderItem() {
+    }
+
+    public OrderItem(String id, Order order, Item item, Integer quantity) {}
 }

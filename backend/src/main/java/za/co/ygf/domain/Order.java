@@ -15,4 +15,12 @@ public class Order {
     private Boolean isActive;
 
 
+    public Order() {
+    }
+
+    public Order(String orderNum, Address address, Boolean isActive) {
+        this.orderNum = orderNum;
+        this.address = address;
+        this.isActive = isActive;
+    }
 }
