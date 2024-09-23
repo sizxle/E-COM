@@ -25,5 +25,17 @@ public class Customer {
 
     private Set<Order> orders;
 
+    public Customer() {
+    }
 
+    public Customer(String customerNum, String name, String surname, String email, String phoneNumber, LocalDate dateOfBirth, String password, Address address) {
+        this.customerNum = customerNum;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+        this.address = address;
+    }
 }
