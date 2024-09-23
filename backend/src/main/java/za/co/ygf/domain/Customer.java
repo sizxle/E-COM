@@ -3,6 +3,7 @@ package za.co.ygf.domain;
 import za.co.ygf.domain.common.Address;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class Customer {
 
@@ -22,6 +23,7 @@ public class Customer {
 
     private Address address;
 
+    private Set<Order> orders;
 
 
 }
