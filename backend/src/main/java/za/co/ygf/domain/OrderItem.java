@@ -14,4 +14,15 @@ public class OrderItem {
     }
 
     public OrderItem(String id, Order order, Item item, Integer quantity) {}
+
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "id='" + id + '\'' +
+                ", order=" + order +
+                ", item=" + item +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
