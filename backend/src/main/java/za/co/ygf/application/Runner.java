@@ -21,6 +21,15 @@ public class Runner {
         Item item= new Item("item11","Shirt","just a cool tee","image of shirt","250");
 
         OrderItem orderItem = new OrderItem("ww",order,item,2);
-        
+
+
+        System.out.println(customer);
+
+        order.addItem(orderItem);
+        customer.addOrder(order);
+
+        System.out.println(customer);
+
+
     }
 }
