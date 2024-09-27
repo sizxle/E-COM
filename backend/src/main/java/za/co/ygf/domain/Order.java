@@ -12,21 +12,27 @@ public class Order {
 
 //    private Set<OrderItem> items = new HashSet<OrderItem>();
 
+    @Column(nullable = false)
+    private Boolean isActive;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_num")
+    private Customer customer;
+
     @ManyToOne
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @Column(nullable = false)
-    private Boolean isActive;
 
 
     public Order() {
     }
 
-    public Order(String orderNum, Address address, Boolean isActive) {
+    public Order(String orderNum, Address address, Boolean isActive,Customer customer) {
         this.orderNum = orderNum;
         this.address = address;
         this.isActive = isActive;
+        this.customer = customer;
     }
 
     public String getOrderNum() {

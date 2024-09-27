@@ -16,7 +16,7 @@ public class Runner {
 
         Address address = new Address("Home", "Zeerust", "2880",customer);
 
-        Order order = new Order("ord111",address,true);
+        Order order = new Order("ord111",address,true,customer);
 
         Item item= new Item("item11","Shirt","just a cool tee","image of shirt","250");
 

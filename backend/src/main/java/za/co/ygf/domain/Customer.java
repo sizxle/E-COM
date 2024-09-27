@@ -3,7 +3,9 @@ package za.co.ygf.domain;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Customer {
@@ -34,8 +36,9 @@ public class Customer {
      */
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<Address> addresses= new ArrayList<Address>();
-//
-//    private Set<Order> orders new HashSet<Order>();;
+
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private Set<Order> orders = new HashSet<Order>();
 
     public Customer() {
     }
@@ -124,7 +127,7 @@ public class Customer {
     }
 
 //    public Address getAddress() {
-////        return address;
+////        return address;//TODO:RETURN THE ADDRESS SET AS HOME
 //    }
 
     public void setAddress(Address address) {
@@ -132,10 +135,10 @@ public class Customer {
     }
 
     public Order getOrders(String OrderNum) {
-        return new Order(); //TO:DO
+        return new Order(); //TODO: MAKE SURE IT RETURNS THE CORRECT ORDER
     }
 
     public void addOrder(Order order) {
-//        this.orders.add(order);
+        this.orders.add(order);
     }
 }

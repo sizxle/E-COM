@@ -24,7 +24,9 @@ public class Application {
 
         customer.setAddress(address);
 
-        Order order = new Order("ord111",address,true);
+        Order order = new Order("ord111",address,true,customer);
+
+
 
         ApplicationContext ctx=SpringApplication.run(Application.class, args);
 
@@ -36,6 +38,7 @@ public class Application {
         OrderService orderService = (OrderService) ctx.getBean("OrderService");
         orderService.createOrder(order);
 
+        customer.addOrder(order);
 //        for (String beanDefinitionName : ctx.getBeanDefinitionNames()) {
 //            System.out.println(beanDefinitionName);
 //        }
