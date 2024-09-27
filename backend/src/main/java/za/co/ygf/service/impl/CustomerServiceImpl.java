@@ -6,6 +6,7 @@ import za.co.ygf.domain.Customer;
 import za.co.ygf.repository.CustomerRepository;
 import za.co.ygf.service.CustomerService;
 
+import javax.transaction.Transactional;
 import java.util.Set;
 
 @Service("CustomerService")
@@ -15,22 +16,23 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
 
     @Override
+    @Transactional
     public void registerCustomer(Customer customer) {
         customerRepository.saveCustomer(customer);
     }
 
     @Override
     public void deleteCustomer(Customer customer) {
-        System.out.println("Customer deleted");
+        customerRepository.deleteCustomer(customer);
     }
 
     @Override
     public void findCustomer(Customer customer) {
-        System.out.println("Customer found");
+        customerRepository.findCustomer(customer);
     }
 
     @Override
     public Set<Customer> findAllCustomers() {
-        return Set.of();
+       return customerRepository.findAllCustomers();
     }
 }
