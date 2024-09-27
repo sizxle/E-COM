@@ -2,14 +2,17 @@ package za.co.ygf.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
 import za.co.ygf.domain.Customer;
 import za.co.ygf.domain.common.Address;
 import za.co.ygf.service.CustomerService;
 
+import javax.persistence.Entity;
 import java.time.LocalDate;
 
 @SpringBootApplication(scanBasePackages="za.co.ygf")
+@EntityScan(basePackages = "za.co.ygf.domain")
 public class Application {
 
     public static void main(String[] args) {
@@ -26,6 +29,10 @@ public class Application {
         System.out.println("here");
 
         customerService.registerCustomer(customer);
+
+//        for (String beanDefinitionName : ctx.getBeanDefinitionNames()) {
+//            System.out.println(beanDefinitionName);
+//        }
 
 
     }
