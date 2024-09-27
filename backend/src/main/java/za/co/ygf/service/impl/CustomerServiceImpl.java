@@ -6,6 +6,7 @@ import za.co.ygf.domain.Customer;
 import za.co.ygf.repository.CustomerRepository;
 import za.co.ygf.service.CustomerService;
 
+import javax.transaction.Transactional;
 import java.util.Set;
 
 @Service("CustomerService")
@@ -15,6 +16,7 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
 
     @Override
+    @Transactional
     public void registerCustomer(Customer customer) {
         customerRepository.saveCustomer(customer);
     }
