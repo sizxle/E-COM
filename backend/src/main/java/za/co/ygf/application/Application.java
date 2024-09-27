@@ -5,8 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
 import za.co.ygf.domain.Customer;
+import za.co.ygf.domain.Order;
 import za.co.ygf.domain.common.Address;
 import za.co.ygf.service.CustomerService;
+import za.co.ygf.service.OrderService;
 
 import javax.persistence.Entity;
 import java.time.LocalDate;
@@ -21,14 +23,17 @@ public class Application {
 
         Customer customer = new Customer("cus111","jane","molefi","sthembizomolefi@gmail.com","0981231234", LocalDate.now(),"password",address);
 
+        Order order = new Order("ord111",address,true);
+
         ApplicationContext ctx=SpringApplication.run(Application.class, args);
 
         System.out.println(ctx.getApplicationName());
 
         CustomerService customerService = (CustomerService) ctx.getBean("CustomerService");
-        System.out.println("here");
-
         customerService.registerCustomer(customer);
+
+        OrderService orderService = (OrderService) ctx.getBean("OrderService");
+        orderService.createOrder(order);
 
 //        for (String beanDefinitionName : ctx.getBeanDefinitionNames()) {
 //            System.out.println(beanDefinitionName);
