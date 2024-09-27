@@ -2,17 +2,25 @@ package za.co.ygf.domain;
 
 import za.co.ygf.domain.common.Address;
 
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "customer_order")
 public class Order {
 
+    @Id
     private String orderNum;
 
-    private Set<OrderItem> items;
 
-    private Address address;
+//    private Set<OrderItem> items;
 
+
+//    private Address address;
+
+    @Column(nullable = false)
     private Boolean isActive;
 
 
@@ -21,9 +29,9 @@ public class Order {
 
     public Order(String orderNum, Address address, Boolean isActive) {
         this.orderNum = orderNum;
-        this.address = address;
+//        this.address = address;
         this.isActive = isActive;
-        this.items = new HashSet<OrderItem>();
+//        this.items = new HashSet<OrderItem>();
     }
 
     public String getOrderNum() {
@@ -34,21 +42,21 @@ public class Order {
         this.orderNum = orderNum;
     }
 
-    public Set<OrderItem> getItems() {
-        return items;
-    }
-
-    public void addItem(OrderItem item) {
-        this.items.add(item);
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+//    public Set<OrderItem> getItems() {
+//        return items;
+//    }
+//
+//    public void addItem(OrderItem item) {
+//        this.items.add(item);
+//    }
+//
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 
     public Boolean getActive() {
         return isActive;
@@ -58,13 +66,13 @@ public class Order {
         isActive = active;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "orderNum='" + orderNum + '\'' +
-                ", items=" + items +
-                ", address=" + address +
-                ", isActive=" + isActive +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Order{" +
+//                "orderNum='" + orderNum + '\'' +
+//                ", items=" + items +
+//                ", address=" + address +
+//                ", isActive=" + isActive +
+//                '}';
+//    }
 }

@@ -1,12 +1,23 @@
 package za.co.ygf.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.co.ygf.domain.Order;
+import za.co.ygf.repository.OrderRepository;
 import za.co.ygf.service.OrderService;
 
+import javax.transaction.Transactional;
+
+@Service("OrderService")
 public class OrderServiceImpl implements OrderService {
+
+    @Autowired
+    private OrderRepository orderRepository;
+
     @Override
+    @Transactional
     public void createOrder(Order order) {
-        System.out.println("Create Order");
+        orderRepository.saveOrder(order);
     }
 
     @Override
@@ -21,6 +32,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void deleteOrder(String orderNum) {
-        System.out.println("Delete Order");
+        orderRepository.deleteOrder(orderRepository.findOrder(orderNum));
     }
 }
