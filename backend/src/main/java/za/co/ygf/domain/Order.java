@@ -5,10 +5,10 @@ import za.co.ygf.domain.common.Address;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "customer_order")
 public class Order {
 
     @Id
