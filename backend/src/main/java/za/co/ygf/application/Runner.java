@@ -25,7 +25,7 @@ public class Runner {
 
         System.out.println(customer);
 
-        order.addItem(orderItem);
+//        order.addItem(orderItem);
         customer.addOrder(order);
 
         System.out.println(customer);
