@@ -1,13 +1,9 @@
 package za.co.ygf.domain;
 
-import za.co.ygf.domain.common.Address;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -33,14 +29,18 @@ public class Customer {
     @Column(nullable = false)
     private String password;
 
-//    private Address address;
+    /**
+     * On Customer can have many address max 3
+     */
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private List<Address> addresses= new ArrayList<Address>();
 //
-//    private Set<Order> orders;
+//    private Set<Order> orders new HashSet<Order>();;
 
     public Customer() {
     }
 
-    public Customer(String customerNum, String name, String surname, String email, String phoneNumber, LocalDate dateOfBirth, String password, Address address) {
+    public Customer(String customerNum, String name, String surname, String email, String phoneNumber, LocalDate dateOfBirth, String password) {
         this.customerNum = customerNum;
         this.name = name;
         this.surname = surname;
@@ -48,8 +48,6 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
         this.password = password;
-//        this.address = address;
-//        this.orders = new HashSet<Order>();
     }
 
 
@@ -129,9 +127,9 @@ public class Customer {
 ////        return address;
 //    }
 
-//    public void setAddress(Address address) {
-//        this.address = address;
-//    }
+    public void setAddress(Address address) {
+        this.addresses.add(address);
+    }
 
     public Order getOrders(String OrderNum) {
         return new Order(); //TO:DO

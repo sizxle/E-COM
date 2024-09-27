@@ -4,7 +4,7 @@ import za.co.ygf.domain.Customer;
 import za.co.ygf.domain.Item;
 import za.co.ygf.domain.Order;
 import za.co.ygf.domain.OrderItem;
-import za.co.ygf.domain.common.Address;
+import za.co.ygf.domain.Address;
 
 import java.time.LocalDate;
 
@@ -12,9 +12,9 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        Address address = new Address("Home", "Zeerust", "2880");
+        Customer customer = new Customer("cus111","jane","molefi","sthembizomolefi@gmail.com","0981231234", LocalDate.now(),"password");
 
-        Customer customer = new Customer("cus111","jane","molefi","sthembizomolefi@gmail.com","0981231234", LocalDate.now(),"password",address);
+        Address address = new Address("Home", "Zeerust", "2880",customer);
 
         Order order = new Order("ord111",address,true);
 

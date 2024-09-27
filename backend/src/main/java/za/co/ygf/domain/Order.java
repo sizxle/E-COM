@@ -1,11 +1,6 @@
 package za.co.ygf.domain;
 
-import za.co.ygf.domain.common.Address;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "customer_order")
@@ -15,10 +10,11 @@ public class Order {
     private String orderNum;
 
 
-//    private Set<OrderItem> items;
+//    private Set<OrderItem> items = new HashSet<OrderItem>();
 
-
-//    private Address address;
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     @Column(nullable = false)
     private Boolean isActive;
@@ -29,9 +25,8 @@ public class Order {
 
     public Order(String orderNum, Address address, Boolean isActive) {
         this.orderNum = orderNum;
-//        this.address = address;
+        this.address = address;
         this.isActive = isActive;
-//        this.items = new HashSet<OrderItem>();
     }
 
     public String getOrderNum() {
