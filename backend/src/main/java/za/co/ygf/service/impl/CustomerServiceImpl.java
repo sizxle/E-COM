@@ -21,16 +21,16 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void deleteCustomer(Customer customer) {
-        System.out.println("Customer deleted");
+        customerRepository.deleteCustomer(customer);
     }
 
     @Override
     public void findCustomer(Customer customer) {
-        System.out.println("Customer found");
+        customerRepository.findCustomer(customer);
     }
 
     @Override
     public Set<Customer> findAllCustomers() {
-        return Set.of();
+       return customerRepository.findAllCustomers();
     }
 }
