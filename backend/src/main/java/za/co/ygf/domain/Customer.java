@@ -2,29 +2,40 @@ package za.co.ygf.domain;
 
 import za.co.ygf.domain.common.Address;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Customer {
 
+    @Id
     private String customerNum;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String surname;
 
+    @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
     private String phoneNumber;
 
+    @Column(nullable = false)
     private LocalDate dateOfBirth;
 
+    @Column(nullable = false)
     private String password;
 
-    private Address address;
-
-    private Set<Order> orders;
+//    private Address address;
+//
+//    private Set<Order> orders;
 
     public Customer() {
     }
@@ -37,8 +48,8 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
         this.password = password;
-        this.address = address;
-        this.orders = new HashSet<Order>();
+//        this.address = address;
+//        this.orders = new HashSet<Order>();
     }
 
 
@@ -52,8 +63,8 @@ public class Customer {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", password='" + password + '\'' +
-                ", address=" + address +
-                ", orders=" + orders +
+//                ", address=" + address +
+//                ", orders=" + orders +
                 '}';
     }
 
@@ -114,19 +125,19 @@ public class Customer {
         this.password = password;
     }
 
-    public Address getAddress() {
-        return address;
-    }
+//    public Address getAddress() {
+////        return address;
+//    }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 
     public Order getOrders(String OrderNum) {
         return new Order(); //TO:DO
     }
 
     public void addOrder(Order order) {
-        this.orders.add(order);
+//        this.orders.add(order);
     }
 }
